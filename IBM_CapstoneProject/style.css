@@ -1,0 +1,311 @@
+/* ----- VARIABLE & RESET ----- */
+:root {
+  --hijau: #0acf83;
+  --hijau-gelap: #099e63;
+  --navy: #112240;
+  --navy-terang: #1f3a63;
+  --abu-muda: #f6f9fc;
+  --abu: #cbd5e1;
+  --hitam: #1e293b;
+  --putih: #ffffff;
+  --max-width: 1100px;
+  --radius: 8px;
+  --bayang: 0 4px 20px rgba(0,0,0,.07);
+  --transisi: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--abu-muda);
+  color: var(--hitam);
+  line-height: 1.6;
+}
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transisi);
+}
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--hijau);
+  color: var(--putih);
+  padding: .8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transisi);
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--hijau-gelap);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(10, 172, 131, 0.4);
+}
+
+/* ----- NAVBAR ----- */
+.nav {
+  background: var(--putih);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--bayang);
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--navy);
+}
+.logo span {
+  color: var(--hijau);
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-weight: 600;
+}
+.nav-links a:hover {
+  color: var(--hijau);
+}
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+#hamburger span {
+  width: 24px;
+  height: 3px;
+  background: var(--navy);
+  border-radius: 3px;
+  transition: var(--transisi);
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    right: 1.5rem;
+    top: 5rem;
+    flex-direction: column;
+    background: var(--putih);
+    width: calc(100% - 3rem);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--bayang);
+    text-align: center;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  #hamburger {
+    display: flex;
+  }
+}
+
+/* ----- HERO ----- */
+.hero {
+  padding: 4rem 0;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.hero h1 span {
+  color: var(--hijau);
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--navy-terang);
+  max-width: 500px;
+}
+/* Pastikan kode ini ada di style.css */
+.hero-img {
+  justify-self: center;
+  max-width: 450px;
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* ----- SECTION ----- */
+section {
+  padding: 4.5rem 0;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--navy);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----- CARDS (Untuk Problem & Fitur) ----- */
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.card {
+  background: var(--putih);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--bayang);
+  text-align: center;
+  transition: var(--transisi);
+  border: 1px solid transparent;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  border-color: var(--hijau);
+}
+.card-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  background-color: #e6f9f1;
+  color: var(--hijau);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+
+/* ===== SEKSI BARU: TESTIMONI ===== */
+.testimoni {
+    background-color: var(--putih);
+}
+.testimoni-card {
+    background-color: var(--abu-muda);
+    border-left: 5px solid var(--hijau);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    max-width: 800px;
+    margin: auto;
+    box-shadow: var(--bayang);
+}
+.testimoni-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--navy-terang);
+    margin-bottom: 1.5rem;
+}
+.testimoni-author h4 {
+    color: var(--navy);
+}
+.testimoni-author span {
+    color: var(--hitam);
+    font-size: 0.9rem;
+}
+
+/* ----- CTA ----- */
+.cta {
+  background: var(--navy);
+  color: var(--putih);
+  padding: 5rem 0;
+  border-radius: 20px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--max-width);
+}
+.cta form {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta input {
+  padding: .8rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  flex: 1 1 300px;
+  font-size: 1rem;
+}
+.cta small {
+  display: block;
+  margin-top: .75rem;
+  opacity: .8;
+}
+
+/* ----- FOOTER ----- */
+.footer {
+  background: var(--hitam);
+  color: var(--putih);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: -2rem; /* Menarik footer ke atas agar menyatu dengan CTA */
+  position: relative;
+  z-index: -1;
+}
+
+/* ----- ANIMATE ON SCROLL (opsional) ----- */
+@media (prefers-reduced-motion: no-preference) {
+  .card, .hero-img, .testimoni-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
